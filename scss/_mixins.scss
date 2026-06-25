@@ -1,0 +1,45 @@
+// ===========================================================================
+//  Mixins & helpers
+// ===========================================================================
+
+// Gradient text — apply the brand gradient to a piece of text.
+// Used by wrapping selected words in a <span class="gradient-text">.
+@mixin gradient-text($gradient: $gradient-primary) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+// Gradient border on a rounded element using a masked pseudo-element.
+// Reference: digitalocean.com/community/tutorials/css-gradient-borders-pure-css
+@mixin gradient-border($radius: $radius, $width: 1.5px, $gradient: $gradient-primary) {
+  position: relative;
+  border-radius: $radius;
+  background: $bg-card;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: $width;
+    background: $gradient;
+    // mask so only the padding ring shows the gradient
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+// Simple responsive breakpoints (mobile-first helpers)
+@mixin up($bp) {
+  @media (min-width: $bp) { @content; }
+}
+@mixin down($bp) {
+  @media (max-width: $bp - 0.02px) { @content; }
+}

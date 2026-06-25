@@ -1,0 +1,19 @@
+// ===========================================================================
+//  NEFA — Cryptocurrency Web App
+//  Main Sass entry point. Compiles to ../css/style.css
+//  Project: Proje Ödevi WT-5440P
+// ===========================================================================
+
+// Abstracts (variables + mixins) are loaded first so every partial can
+// reference them.
+@import 'variables';
+@import 'mixins';
+
+// Base + components
+@import 'base';
+@import 'navbar';
+@import 'hero';
+@import 'market';
+@import 'steps';
+@import 'faq';
+@import 'cta';

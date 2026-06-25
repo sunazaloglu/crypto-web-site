@@ -1,0 +1,44 @@
+// ===========================================================================
+//  Variables — design tokens for the NEFA crypto web app
+// ===========================================================================
+
+// --- Brand / accent colours ------------------------------------------------
+$brand-blue:    #4d6bff;
+$brand-indigo:  #6b5bff;
+$brand-purple:  #9d6bff;
+$brand-pink:    #d56bff;
+
+// Primary gradient used for buttons, gradient text and gradient borders
+$gradient-primary: linear-gradient(120deg, $brand-blue 0%, $brand-purple 100%);
+$gradient-soft:    linear-gradient(120deg, #5b7bff 0%, #b06bff 100%);
+
+// --- Neutral palette -------------------------------------------------------
+$ink-900: #0d1330;   // headings
+$ink-700: #2b3357;   // strong body text
+$ink-500: #6b7393;   // muted body text
+$ink-300: #9aa2bd;   // faint text / captions
+$line:    #eaecf5;   // hairline borders / dividers
+
+$bg-page:  #ffffff;
+$bg-soft:  #f6f7fc;  // section background
+$bg-card:  #ffffff;
+
+// --- Market colours --------------------------------------------------------
+$up:   #16c784;      // price up / green chart
+$down: #ea3943;      // price down / red chart
+
+// --- Typography ------------------------------------------------------------
+$font-base: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+// --- Radius & shadow -------------------------------------------------------
+$radius-sm: 10px;
+$radius:    16px;
+$radius-lg: 24px;
+$radius-pill: 999px;
+
+$shadow-sm: 0 6px 20px rgba(20, 30, 80, 0.06);
+$shadow:    0 18px 50px rgba(20, 30, 80, 0.10);
+$shadow-lg: 0 30px 80px rgba(20, 30, 80, 0.14);
+
+// --- Layout ----------------------------------------------------------------
+$nav-height: 80px;
