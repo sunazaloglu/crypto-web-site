@@ -1,0 +1,103 @@
+// ===========================================================================
+//  Market section — Trending / Top Gainers / Recently Added
+// ===========================================================================
+
+.market {
+  .market-board {
+    background: $bg-card;
+    border-radius: $radius-lg;
+    box-shadow: $shadow;
+    overflow: hidden;
+  }
+
+  // The three columns sit in a Bootstrap row; on desktop each column gets a
+  // single hairline divider on its left edge (flexbox-separator technique).
+  .market-col {
+    padding: 26px 24px;
+
+    + .market-col {
+      border-left: 1px solid $line;
+    }
+
+    // stack on mobile: swap the side divider for a top divider
+    @include down(992px) {
+      + .market-col {
+        border-left: none;
+        border-top: 1px solid $line;
+      }
+    }
+  }
+}
+
+.market-col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: $ink-900;
+    font-size: 1.02rem;
+  }
+
+  .more {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: $brand-blue;
+  }
+}
+
+// Column header row labels (Name / Price / Chart)
+.coin-row--head {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $ink-300;
+  font-weight: 600;
+  padding-bottom: 6px;
+  border: none;
+}
+
+.coin-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.9fr;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid $line;
+  transition: background 0.15s ease;
+
+  &:hover:not(.coin-row--head) {
+    background: $bg-soft;
+    border-radius: $radius-sm;
+  }
+
+  .coin-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: $ink-900;
+    font-size: 0.92rem;
+
+    img { width: 26px; height: 26px; }
+    .ticker { color: $ink-300; font-weight: 500; font-size: 0.8rem; }
+  }
+
+  .coin-price {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: $ink-700;
+
+    &.up   { color: $up; }
+    &.down { color: $down; }
+  }
+
+  .coin-chart {
+    text-align: right;
+    img { width: 72px; height: 28px; display: inline-block; }
+  }
+}
