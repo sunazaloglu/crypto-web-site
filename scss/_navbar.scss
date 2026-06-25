@@ -1,0 +1,53 @@
+// ===========================================================================
+//  Navbar
+// ===========================================================================
+
+.site-nav {
+  height: $nav-height;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid $line;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+
+  .navbar-brand {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: $ink-900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: $gradient-primary;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 18px rgba(77, 107, 255, 0.4);
+  }
+
+  .nav-link {
+    color: $ink-700;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: color 0.16s ease;
+
+    &:hover,
+    &.active {
+      color: $brand-blue;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    &:focus { box-shadow: none; }
+  }
+}

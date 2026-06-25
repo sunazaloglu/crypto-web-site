@@ -1,0 +1,186 @@
+// ===========================================================================
+//  Hero — heading + buy/sell widget
+// ===========================================================================
+
+.hero {
+  position: relative;
+  padding: 90px 0 80px;
+  overflow: hidden;
+
+  // soft radial glows in the background
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.45;
+    z-index: 0;
+  }
+  &::before {
+    width: 420px; height: 420px;
+    background: rgba(77, 107, 255, 0.30);
+    top: -120px; left: -120px;
+  }
+  &::after {
+    width: 460px; height: 460px;
+    background: rgba(157, 107, 255, 0.25);
+    bottom: -160px; right: -100px;
+  }
+
+  .container { position: relative; z-index: 1; }
+
+  @include down(768px) {
+    padding: 56px 0 48px;
+  }
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 1.4rem + 3.4vw, 3.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.hero-lead {
+  color: $ink-500;
+  font-size: 1.12rem;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 44px;
+
+  .stat-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: $ink-900;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: $ink-500;
+  }
+
+  @include down(576px) {
+    gap: 26px;
+  }
+}
+
+// --- Buy / sell widget ------------------------------------------------------
+.buy-widget {
+  background: $bg-card;
+  border-radius: $radius-lg;
+  padding: 28px;
+  box-shadow: $shadow-lg;
+  max-width: 420px;
+  margin-left: auto;
+
+  @include down(992px) {
+    margin: 40px auto 0;
+  }
+
+  .widget-tabs {
+    display: flex;
+    gap: 8px;
+    background: $bg-soft;
+    border-radius: $radius-pill;
+    padding: 5px;
+    margin-bottom: 22px;
+
+    button {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      color: $ink-500;
+      padding: 9px 0;
+      border-radius: $radius-pill;
+      cursor: pointer;
+      transition: all 0.18s ease;
+
+      &.active {
+        background: #fff;
+        color: $ink-900;
+        box-shadow: $shadow-sm;
+      }
+    }
+  }
+
+  .field-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: $ink-500;
+    margin-bottom: 8px;
+  }
+}
+
+// Row holding the amount input + the currency select, joined with a
+// gradient border so they read as one control.
+.amount-control {
+  @include gradient-border($radius: $radius, $width: 1.6px);
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 18px;
+
+  .amount-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 16px 18px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $ink-900;
+    border-radius: $radius 0 0 $radius;
+
+    &:focus { outline: none; }
+    &::placeholder { color: $ink-300; }
+  }
+
+  // Custom-styled native select for the USD / BTC currency picker
+  .currency-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    border-left: 1px solid $line;
+
+    img { width: 22px; height: 22px; }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      color: $ink-900;
+      font-size: 0.95rem;
+      padding-right: 18px;
+      cursor: pointer;
+
+      &:focus { outline: none; }
+    }
+
+    // dropdown chevron
+    &::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      width: 8px; height: 8px;
+      border-right: 2px solid $ink-500;
+      border-bottom: 2px solid $ink-500;
+      transform: rotate(45deg) translateY(-2px);
+      pointer-events: none;
+    }
+  }
+}
+
+.widget-rate {
+  text-align: center;
+  font-size: 0.85rem;
+  color: $ink-500;
+  margin: 6px 0 18px;
+}
