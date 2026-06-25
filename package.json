@@ -1,0 +1,13 @@
+{
+  "name": "nefa-crypto-web-site",
+  "version": "1.0.0",
+  "description": "NEFA Cryptocurrency Web App - HTML, Sass & Bootstrap recreation of the Figma design (Proje Ödevi WT-5440P)",
+  "scripts": {
+    "sass": "sass scss/style.scss css/style.css --no-source-map",
+    "watch": "sass --watch scss/style.scss css/style.css",
+    "build": "sass scss/style.scss css/style.css --style=compressed --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
