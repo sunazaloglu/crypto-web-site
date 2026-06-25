@@ -1,0 +1,60 @@
+// ===========================================================================
+//  "Get started in just a few minutes" — 3 steps joined with arrows
+// ===========================================================================
+
+.steps {
+  text-align: center;
+
+  .steps-row {
+    position: relative;          // anchor for the absolutely-positioned arrows
+    margin-top: 56px;
+  }
+}
+
+.step-card {
+  position: relative;
+  padding: 0 18px;
+
+  .step-illustration {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+
+    img { width: 100%; height: 100%; object-fit: contain; }
+  }
+
+  .step-title {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+
+  .step-text {
+    color: $ink-500;
+    font-size: 0.95rem;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+// Arrows between the cards. They are positioned absolutely relative to
+// .steps-row and given a width relative to the viewport so that on smaller
+// screens they shrink rather than overlapping the illustrations.
+.step-arrow {
+  position: absolute;
+  top: 48px;
+  width: 11vw;
+  max-width: 150px;
+  z-index: 0;
+  opacity: 0.85;
+
+  &--1 { left: 27%; }
+  &--2 { left: 60%; }
+
+  // On stacked (mobile) layouts the cards are no longer side-by-side,
+  // so the connecting arrows are removed entirely.
+  @include down(768px) {
+    display: none;
+  }
+}

@@ -1,0 +1,73 @@
+// ===========================================================================
+//  FAQ — accordion (Frequently asked questions)
+// ===========================================================================
+
+.faq {
+  .faq-illustration {
+    img { max-width: 360px; }
+
+    @include down(992px) {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+  }
+}
+
+.accordion-list {
+  border-top: 1px solid $line;
+}
+
+.accordion-item {
+  border-bottom: 1px solid $line;
+}
+
+// The clickable question header
+.accordion-trigger {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 22px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: $ink-900;
+  transition: color 0.16s ease;
+
+  &:hover { color: $brand-blue; }
+
+  // chevron — points down; rotates up when the panel is open
+  .chevron {
+    flex: none;
+    width: 12px; height: 12px;
+    border-right: 2px solid $ink-500;
+    border-bottom: 2px solid $ink-500;
+    transform: rotate(45deg);
+    transition: transform 0.25s ease;
+    margin-top: -4px;
+  }
+
+  &.active .chevron {
+    transform: rotate(-135deg);
+    margin-top: 4px;
+    border-color: $brand-blue;
+  }
+}
+
+// The answer panel — collapsed via max-height for an animated reveal
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  .panel-inner {
+    padding: 0 4px 22px;
+    color: $ink-500;
+    font-size: 0.98rem;
+    max-width: 620px;
+  }
+}
